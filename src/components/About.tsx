@@ -21,9 +21,9 @@ const highlights = [
 ];
 
 const currentlyLearning = [
-  "Network security architecture",
-  "Vulnerability assessment",
-  "Linux system hardening",
+  "Advanced RAG pipelines",
+  "Offensive security techniques",
+  "Cloud-native deployment",
 ];
 
 export function About() {
@@ -50,9 +50,10 @@ export function About() {
               </p>
               <p className="mt-4 text-base leading-relaxed text-muted sm:text-lg">
                 I also treat cybersecurity as a core part of how I build, not an
-                afterthought. Through the ANT Technology Training Center cyber
-                security program and my own Linux-based labs, I practice network
-                scanning, traffic analysis, and web application testing — so I
+                afterthought. Having completed the cyber security program at ANT
+                Technology Training Center, I continue to practice network
+                scanning, traffic analysis, and web application testing in my own
+                Linux-based labs — so I
                 understand how the systems I build can be attacked, and how to
                 defend them.
               </p>

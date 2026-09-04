@@ -1,4 +1,4 @@
-import { Download, GraduationCap, Award, Briefcase, FolderGit2 } from "lucide-react";
+import { Download, GraduationCap, Award, Briefcase, FolderGit2, Trophy, ExternalLink } from "lucide-react";
 import { site } from "@/data/site";
 import { education, certifications, experience } from "@/data/resume";
 import { skillCategories } from "@/data/skills";
@@ -7,6 +7,7 @@ import { SectionHeading } from "./ui/SectionHeading";
 import { Reveal } from "./ui/Reveal";
 import { Button } from "./ui/Button";
 import { Badge } from "./ui/Badge";
+import { LogoBadge } from "./ui/LogoBadge";
 
 export function Resume() {
   return (
@@ -35,11 +36,14 @@ export function Resume() {
               </div>
               <div className="mt-5 space-y-4">
                 {education.map((item) => (
-                  <div key={item.title} className="border-l-2 border-accent-cyan/30 pl-4">
-                    <p className="font-mono text-xs text-accent-cyan">{item.period}</p>
-                    <p className="mt-1 text-sm font-medium text-foreground">{item.title}</p>
-                    <p className="text-xs text-muted">{item.place}</p>
-                    <p className="mt-1 text-sm text-muted">{item.description}</p>
+                  <div key={item.title} className="flex gap-3.5">
+                    <LogoBadge src={item.logo} alt={item.place} photo={item.photo} />
+                    <div className="min-w-0 flex-1 border-l-2 border-accent-cyan/30 pl-4">
+                      <p className="font-mono text-xs text-accent-cyan">{item.period}</p>
+                      <p className="mt-1 text-sm font-medium text-foreground">{item.title}</p>
+                      <p className="text-xs text-muted">{item.place}</p>
+                      <p className="mt-1 text-sm text-muted">{item.description}</p>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -56,11 +60,14 @@ export function Resume() {
               </div>
               <div className="mt-5 space-y-4">
                 {experience.map((item) => (
-                  <div key={item.role} className="border-l-2 border-accent-blue/30 pl-4">
-                    <p className="font-mono text-xs text-accent-blue">{item.period}</p>
-                    <p className="mt-1 text-sm font-medium text-foreground">{item.role}</p>
-                    <p className="text-xs text-muted">{item.place}</p>
-                    <p className="mt-1 text-sm text-muted">{item.description}</p>
+                  <div key={item.role} className="flex gap-3.5">
+                    <LogoBadge src={item.logo} alt={item.place} photo={item.photo} />
+                    <div className="min-w-0 flex-1 border-l-2 border-accent-blue/30 pl-4">
+                      <p className="font-mono text-xs text-accent-blue">{item.period}</p>
+                      <p className="mt-1 text-sm font-medium text-foreground">{item.role}</p>
+                      <p className="text-xs text-muted">{item.place}</p>
+                      <p className="mt-1 text-sm text-muted">{item.description}</p>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -101,9 +108,28 @@ export function Resume() {
               <div className="mt-5 space-y-4">
                 {certifications.map((cert) => (
                   <div key={cert.title} className="border-l-2 border-emerald-500/30 pl-4">
-                    <p className="font-mono text-xs text-emerald-400">{cert.year}</p>
+                    <div className="flex items-center gap-2">
+                      <p className="font-mono text-xs text-emerald-400">{cert.year}</p>
+                      {cert.highlight && (
+                        <span className="inline-flex items-center gap-1 rounded-full bg-amber-500/15 px-2 py-0.5 font-mono text-[10px] text-amber-400">
+                          <Trophy size={10} /> {cert.highlight}
+                        </span>
+                      )}
+                    </div>
                     <p className="mt-1 text-sm font-medium text-foreground">{cert.title}</p>
-                    <p className="text-xs text-muted">{cert.issuer}</p>
+                    <div className="flex items-center justify-between gap-3">
+                      <p className="text-xs text-muted">{cert.issuer}</p>
+                      {cert.file && (
+                        <a
+                          href={cert.file}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex shrink-0 items-center gap-1 text-xs text-accent-cyan hover:underline"
+                        >
+                          View <ExternalLink size={11} />
+                        </a>
+                      )}
+                    </div>
                   </div>
                 ))}
               </div>

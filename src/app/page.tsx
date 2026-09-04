@@ -9,6 +9,7 @@ import { GitHubActivity } from "@/components/GitHubActivity";
 import { Resume } from "@/components/Resume";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
+import { AIAssistant } from "@/components/AIAssistant";
 
 export default function Home() {
   return (
@@ -26,6 +27,7 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
+      <AIAssistant />
     </>
   );
 }

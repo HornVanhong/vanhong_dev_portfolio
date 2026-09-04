@@ -18,10 +18,10 @@ export type TimelineItem = {
 
 export const timeline: TimelineItem[] = [
   {
-    year: "Education",
-    title: "Studying Computer Science",
+    year: "2022 — 2025",
+    title: "Computer Science at RUPP",
     description:
-      "Building a foundation in algorithms, data structures, and software engineering principles.",
+      "Bachelor of Computer Science with a Cyber Security specialization at the Royal University of Phnom Penh, on an MPTC Scholarship.",
     icon: GraduationCap,
   },
   {
